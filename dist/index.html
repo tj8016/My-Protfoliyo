@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TJ-Protfoliyo</title>
+
+    <!-- =================== Favicon ================== -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/logoimg.png">
+
+    <!-- ==================== UNICONS ==================== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--==================== GOOGLE FONT ====================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            scroll-behavior: smooth;
+            scroll-padding: var(--scroll-padding, 5rem);
+        }
+
+        /* ================ MOBILE NAV ================== */
+
+        .mobile-nav.mobile-close {
+            transform: translateY(-110%);
+            overflow: hidden;
+        }
+
+        .mobile-nav.mobile-open {
+            transform: translateY(0);
+        }
+
+        .mobile-open .first-toggle {
+            position: absolute;
+            transform: rotate(45deg);
+            top: 20px;
+        }
+
+        .mobile-open .second-toggle {
+            opacity: 0;
+        }
+        
+        .mobile-open .third-toggle {
+            position: absolute;
+            width: 2.5rem;
+            transform: rotate(-45deg);
+            top: 20px;
+        }
+
+        .mobile-close .first-toggle {
+            transform: rotate(0);
+        }
+
+        .mobile-close .second-toggle {
+            opacity: 1;
+        }
+        
+        .mobile-close .third-toggle {
+            width: 1.5;
+        }
+
+        .skills-list {
+            transition: all 0.2s ease-out;
+        }
+
+        .skills-close .skills-list {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .skills-open .skills-list {
+            height: var(--skills-content-height, 200px);
+        }
+
+        .skills__arrow {
+            transition: all .2s ease-in-out;
+        }
+
+        .skills-open .skills__arrow {
+            transform: rotate(-180deg);
+        }
+
+        .qualification-button.active {
+            color: #fa4e02;
+        }
+
+        .qualification__data {
+            display: grid;
+            grid-template-columns: 1fr max-content 1fr;
+            column-gap: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="m-0 p-0 w-[100vw] h-[100vh] overflow-x-hidden overflow-y-auto relative select-none">
+        <img class="absolute top-0 right-0" src="assets/images/homegradient.svg" alt="">
+        <header id="nav-bar" class="fixed w-[100%] top-0 bg-bgColor z-[99999] flex flex-col items-center justify-center"
+            style="box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
+            <nav
+                class="w-[100%]  max-w-[1300px] h-[100%] bg-bgColor py-4 px-4 mx-auto flex flex-row justify-between items-center">
+                <div class="nav-logo flex justify-between items-center gap-x-3">
+                    <img class="w-11" src="assets/images/logoimg.png" alt="">
+                    <h1 class="logo font-rubik text-3xl font-bold leading-5 text-firstColor">T<span
+                            class="text-thirdColor">J</span>.</h1>
+                </div>
+                <div class="hidden nav-list text-lg md:block">
+                    <ul class="nav flex flex-row justify-between items-center gap-x-6 py-3">
+                        <li><a href="#home" id="home-btn"
+                                class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Home</a>
+                        </li>
+                        <li><a href="#about" id="about-btn"
+                                class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">About</a>
+                        </li>
+                        <li><a href="#skills" id="skills-btn"
+                                class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Skills</a>
+                        </li>
+                        <li><a href="#qualification" id="skills-btn"
+                                class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Qualification</a>
+                        </li>
+                        <li><a href="#projects" id="project-btn"
+                                class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Projects</a>
+                        </li>
+                        <li><a href="#contact" id="contact-btn"
+                                class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hidden nav-social md:block">
+                    <div class="flex flex-row justify-between items-center gap-x-1">
+                        <a href="https://www.linkedin.com/in/tohidujjaman-hoque/" target="_blank"
+                            class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="https://twitter.com/coding_tj" target="_blank"
+                            class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                            <i class="uil uil-twitter-alt"></i>
+                        </a>
+                        <a href="https://github.com/tj8016" target="_blank"
+                            class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coding_tj/" target="_blank"
+                            class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="toggle"
+                    class="toggle mobile-close relative flex h-[52px] w-[60px] cursor-pointer flex-col items-end justify-between p-[0.8rem] transition-all duration-300 ease-in-out md:hidden">
+                    <span class="first-toggle w-10 rounded-md py-[2px] false bg-black transition-all duration-300"></span>
+                    <span class="second-toggle w-8 py-[2px] rounded-md bg-black transition-all duration-300"></span>
+                    <span class="third-toggle w-6 false rounded-md bg-black py-[2px] transition-all duration-300"></span>
+                </div>
+            </nav>
+
+            <div id="mobile-nav"
+                class="-z-[999] mobile-nav absolute top-full left-0 right-0 pointer-events-auto backdrop-blur-lg transition-all ease-in-out duration-300 md:hidden mobile-close"
+                style="background-color: rgba(255, 255, 255, 0.25); box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
+                <div class="flex flex-col py-6 gap-y-4">
+                    <div class="navlist">
+                        <ul class="mobile-navlist flex flex-col justify-between items-center gap-y-5 px-3 ">
+                            <li><a href="#home" id="home-btn" class="mobile-nav-btn"
+                                    class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Home</a>
+                            </li>
+                            <li><a href="#about" id="about-btn" class="mobile-nav-btn"
+                                    class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">About</a>
+                            </li>
+                            <li><a href="#skills" id="skills-btn" class="mobile-nav-btn"
+                                    class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Skills</a>
+                            </li>
+                            <li><a href="#projects" id="project-btn" class="mobile-nav-btn"
+                                    class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Projects</a>
+                            </li>
+                            <li><a href="#contact" id="contact-btn" class="mobile-nav-btn"
+                                    class="font-rubik py-6 text-lg leading-5 transition-all hover:text-thirdColor">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="social-link">
+                        <div class="flex flex-row justify-center items-center gap-x-1">
+                            <a href="https://www.linkedin.com/in/tohidujjaman-hoque/" target="_blank"
+                                class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                <i class="uil uil-linkedin-alt"></i>
+                            </a>
+                            <a href="https://twitter.com/coding_tj" target="_blank"
+                                class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                <i class="uil uil-twitter-alt"></i>
+                            </a>
+                            <a href="https://github.com/tj8016" target="_blank"
+                                class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                            <a href="https://www.instagram.com/coding_tj/" target="_blank"
+                                class="font-rubik p-2 text-lg leading-5 rounded-full bg-firstColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                <i class="uil uil-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="mt-[85px] -z-[9999]">
+            <!-- ====================Home ===================== -->
+            <section id="home" class="w-[100%] bg-bgColor">
+                <div
+                    class="wrapper w-[95%] max-w-[1300px] mx-auto flex flex-col-reverse justify-between items-center gap-y-11 pt-[100px] pb-11 md:flex-row">
+                    <div class="home-content flex flex-row justify-center items-center md:w-[50%]">
+                        <div class="flex flex-col justify-between gap-y-3">
+                            <h3 class="font-rubik text-xl md:text-2xl xl:text-4xl text-secondColor">Hi, I'am <span
+                                    class="text-secondColor">Tohidujjaman Hoque</span></h3>
+                            <h1 class="font-rubik text-xl font-bold flex flex-row gap-x-2 md:text-3xl xl:text-4xl">
+                                <span class="text-firstColor">I'am a </span><span class="role text-thirdColor"></span>
+                            </h1>
+                            <p class=" text-subText text-xs md:text-base">B.tech at Aliah University || Leetcode 400+ ||
+                                <br> MERN Stack Developer || Open Source Contribution || <br> hacktoberfest 21 ||
+                                Youtuber
+                            </p>
+                            <div class="home-button flex items-center gap-x-1 mt-5">
+                                <a href="#contact"
+                                    class="flex gap-x-2 text-[#fff] bg-firstColor xl:text-lg text-sm xl:px-7 px-5 xl:py-4 py-2 border border-firstColor rounded-md  transition-all hover:bg-secondColor">
+                                    Contact Me<i class="uil uil-message button__icon"></i>
+                                </a>
+                                <div class="home__scroll">
+                                    <a href="#about"
+                                        class="flex items-center gap-x-2 xl:text-lg text-sm xl:px-7 xl:py-4 py-2 transition-all hover:translate-y-1">
+                                        <i class="uil uil-mouse-alt home__scroll-mouse text-2xl text-firstColor"></i>
+                                        <span class="home__scroll-name">Scroll down</span>
+                                        <i class="uil uil-arrow-down home__scroll-arrow text-2xl text-firstColor"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-img relative flex justify-center items-center md:w-[50%]">
+                        <div class="relative flex justify-center items-center">
+                            <div
+                                class="w-[300px] h-[300px] xl:w-[400px] xl:h-[400px] bg-firstColor grid place-items-center rounded-full">
+                                <div
+                                    class="w-[200px] h-[200px] xl:w-[280px] xl:h-[280px] bg-secondColor grid place-items-center rounded-full">
+
+                                </div>
+                            </div>
+                        </div>
+                        <img class="absolute -top-[72px] rounded-full w-[250px] xl:w-[350px] xl:-top-[123px] z-[999]"
+                            src="assets/images/homeimage.png" alt="" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- =================== About ==================== -->
+            <section id="about" class="w-[100%] bg-bgColor">
+                <div
+                    class="about-container wrapper w-[95%] max-w-[1300px] mx-auto flex flex-col justify-between items-center gap-11 py-14">
+                    <div class="about-heading flex flex-col gap-2 justify-center items-center">
+                        <h1 class="font-rubik text-2xl font-semibold flex flex-row gap-x-2 md:text-4xl xl:text-4xl">
+                            About
+                        </h1>
+                        <p class="text-subText text-xs md:text-base">My Introduction</p>
+                    </div>
+                    <div class="w-[90%] relative bg-firstColor shadow-xl rounded-2xl md:w-[85%]">
+                        <img class="absolute top-2 right-0" src="assets/images/aboutsection1.svg" alt="">
+                        <img class="absolute bottom-0 right-0 translate-y-1 -rotate-90 w-[120px]"
+                            src="assets/images/aboutsection2.svg" alt="">
+                        <div class="about-content w-[100%] flex flex-col justify-between  gap-5 p-8 md:flex-row">
+                            <div class="about-img flex justify-center items-center md:w-[30%]">
+                                <img class="rounded-2xl w-[350px] md:w-[550px] xl:w-[600px]"
+                                    src="assets/images/aboutimg.jpg" alt="">
+                            </div>
+                            <div class="about-content flex md:w-[70%]">
+                                <div class="text-white rounded-2xl flex flex-col items-center gap-8  lg:p-9">
+                                    <div class="about-text flex flex-col gap-5">
+                                        <p class="text-sm lg:text-base">I'm <span
+                                                class="text-thirdColor font-semibold">Tohidujjaman
+                                                Hoque</span>, a passionate computer science student pursuing my degree
+                                            at Aliah University. With a focus on Software Development, I thrive
+                                            on problem-solving and enjoy delving into complex algorithms. From mastering
+                                            programming languages like C, C++, JavaScript to understanding
+                                            data structures and software development principles, I continuously expand
+                                            my technical skills. Collaborative and adaptable, I value teamwork and
+                                            effective communication. I actively seek opportunities to learn and stay
+                                            updated with the latest advancements in computer science, particularly in
+                                            Software Development. Eager to contribute to meaningful
+                                            projects, I'm seeking internships or entry-level positions to make a
+                                            positive impact in the field.</p>
+                                    </div>
+                                    <div class="about-btn flex justify-center items-center">
+                                        <a href="assets/pdf/TJ-CV.pdf" download
+                                            class="flex items-center gap-x-2 text-white bg-thirdColor xl:text-lg text-sm xl:px-4 px-3 xl:py-2 py-2 border border-firstColor rounded-md  transition-all hover:bg-secondColor"
+                                            target="_blank">
+                                            Download CV<i class="uil uil-arrow-down text-2xl text-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =================== Skills ==================== -->
+            <section id="skills" class="w-[100%] bg-bgColor2">
+                <div
+                    class="z-[100] skills-wrapper wrapper w-[95%] max-w-[1300px] mx-auto flex flex-col justify-between items-center gap-11 py-14">
+                    <div class="skills-heading flex flex-col justify-center items-center">
+                        <h1 class="font-rubik text-2xl font-semibold flex flex-row gap-x-2 md:text-4xl xl:text-4xl">
+                            Skills</h1>
+                        <p class="text-subText text-xs md:text-base">My Technical Level</p>
+                    </div>
+
+                    <div class="skills-container w-[100%] flex flex-col justify-center items-center">
+                        <div class="w-[90%] md:w-[60%]">
+                            <!-- ===================== Skills 1 ====================== -->
+                            <div class="skills-content skills-close">
+                                <div
+                                    class="skills-header cursor-pointer flex flex-row justify-between items-center font-semibold w-[100%] py-4 px-3">
+                                    <div class="flex items-center gap-x-2">
+                                        <i class="uil uil-server-network skills__icon text-4xl text-firstColor"></i>
+                                        <h1
+                                            class="skills__title font-rubik text-lg md:text-xl xl:text-2xl text-firstColor">
+                                            Languages & DSA</h1>
+                                    </div>
+                                    <i class="uil uil-angle-down skills__arrow text-3xl"></i>
+                                </div>
+                                <div class="skills-list flex items-center justify-center">
+                                    <div class="grid gap-y-4 px-7 w-[90%]">
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">C++</h3>
+                                                <span class="skills__number">80%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[80%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">C</h3>
+                                                <span class="skills__number">80%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[80%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">Data Structures & Algorithms</h3>
+                                                <span class="skills__number">80%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[80%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===================== Skills 2 ====================== -->
+                            <div class="skills-content skills-close">
+                                <div
+                                    class="skills-header cursor-pointer flex flex-row justify-between items-center font-semibold w-[100%] py-4 px-3">
+                                    <div class="flex items-center gap-x-2">
+                                        <i class="uil uil-brackets-curly skills__icon text-4xl text-firstColor"></i>
+                                        <h1
+                                            class="skills__title font-rubik text-lg md:text-xl xl:text-2xl text-firstColor">
+                                            Frontend Development</h1>
+                                    </div>
+                                    <i class="uil uil-angle-down skills__arrow text-3xl"></i>
+                                </div>
+                                <div class="skills-list flex justify-center items-center ">
+                                    <div class="grid gap-y-4 px-7 w-[90%]">
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">HTML</h3>
+                                                <span class="skills__number">90%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[90%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">CSS</h3>
+                                                <span class="skills__number">80%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[80%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">JavaScript</h3>
+                                                <span class="skills__number">70%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[70%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">React JS</h3>
+                                                <span class="skills__number">70%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[70%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ===================== Skills 3 ====================== -->
+                            <div class="skills-content skills-close">
+                                <div
+                                    class="skills-header cursor-pointer flex flex-row justify-between items-center font-semibold w-[100%] py-4 px-3">
+                                    <div class="flex items-center gap-x-2">
+                                        <i class="uil uil-server-network skills__icon text-4xl text-firstColor"></i>
+                                        <h1
+                                            class="skills__title font-rubik text-lg md:text-xl xl:text-2xl text-firstColor">
+                                            Backend Development</h1>
+                                    </div>
+                                    <i class="uil uil-angle-down skills__arrow text-3xl"></i>
+                                </div>
+                                <div class="skills-list flex justify-center items-center">
+                                    <div class=" grid gap-y-4 px-7 w-[90%]">
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">Node Js</h3>
+                                                <span class="skills__number">70%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[70%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">Express Js</h3>
+                                                <span class="skills__number">70%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[70%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="skills__data flex flex-col gap-y-1">
+                                            <div class="skills__titles flex justify-between items-center">
+                                                <h3 class="skills__name">MongoDb</h3>
+                                                <span class="skills__number">80%</span>
+                                            </div>
+                                            <div class="skills__bar bg-subColor rounded-full">
+                                                <span
+                                                    class="skills__percentage skills__html block py-1 w-[80%] rounded-full bg-secondColor z-10"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- =================== QUALIFICATION ==================== -->
+            <section id="qualification" class="bg-bgColor2">
+                <div
+                    class="qualification-wrapper w-[95%] max-w-[1300px] mx-auto flex flex-col justify-between items-center gap-y-6 py-14">
+                    <div class="qualification-heading flex flex-col justify-center items-center">
+                        <h1
+                            class="font-rubik text-2xl text-firstColor font-semibold flex flex-row gap-x-2 md:text-4xl xl:text-4xl">
+                            Qualification
+                        </h1>
+                        <p class="text-subText text-xs md:text-base">My Personal Journey</p>
+                    </div>
+
+                    <div class="qualification-content flex flex-col gap-y-7 w-[90%] md:w-[50%] lg:w-[40%]">
+                        <div class="qualification__tabs flex justify-evenly items-center gap-x-6">
+                            <div class="qualification-button font-rubik text-lg md:text-xl xl:text-2xl font-semibold cursor-pointer text-firstColor transition-all hover:text-thirdColor active"
+                                data-target='#education'>
+                                <i class="uil uil-graduation-cap qualification__icon text-2xl md:text-3xl"></i>
+                                Education
+                            </div>
+                            <div class="qualification-button font-rubik text-lg md:text-xl xl:text-2xl font-semibold cursor-pointer text-firstColor transition-all hover:text-thirdColor"
+                                data-target="#work">
+                                <i class="uil uil-briefcase-alt qualification__icon text-2xl md:text-3xl"></i>
+                                Work
+                            </div>
+                        </div>
+
+                        <div class="min-h-[330px]">
+                            <!-- ======================= QUALIFICATION CONTENT 1 ===================-->
+                            <div class="qualification-content" data-content id="education">
+                                <!--==================== QUALIFICATION 1====================-->
+                                <div class="qualification__data relative">
+                                    <div class="flex flex-col">
+                                        <h3
+                                            class="qualification__title font-rubik font-semibold text-lg text-firstColor">
+                                            B.Tech in Civil Engineering</h3>
+                                        <span class="qualification__subtitle font-rubik text-md text-secondColor">Aliah
+                                            University</span>
+                                        <div class="qualification__calender font-rubik text-sm  text-subText">
+                                            <i class="uil uil-calendar-alt"></i>
+                                            2020 - 2024
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col justify-center items-center pt-2">
+                                        <span
+                                            class="qualification__rounder inline-block h-3 w-3 rounded-full bg-firstColor"></span>
+                                        <spna class="qualification__line w-[2px] h-[100%] bg-firstColor"></spna>
+                                    </div>
+                                </div>
+
+                                <!--==================== QUALIFICATION 2====================-->
+                                <div class="qualification__data">
+
+                                    <div></div>
+
+                                    <div class="flex flex-col justify-center items-center ">
+                                        <span
+                                            class="qualification__rounder inline-block h-3 w-3 rounded-full bg-firstColor"></span>
+                                        <spna class="qualification__line w-[2px] h-full bg-firstColor"></spna>
+                                    </div>
+
+                                    <div>
+                                        <h3
+                                            class="qualification__title font-rubik font-semibold text-lg text-firstColor">
+                                            Higer Secondary Education</h3>
+                                        <span
+                                            class="qualification__subtitle font-rubik text-md text-secondColor">Golapganj
+                                            High School</span>
+                                        <div class="qualification__calender font-rubik text-sm  text-subText">
+                                            <i class="uil uil-calendar-alt"></i>
+                                            2018 - 2020
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--==================== QUALIFICATION 3====================-->
+                                <div class="qualification__data">
+                                    <div>
+                                        <h3
+                                            class="qualification__title font-rubik font-semibold text-lg text-firstColor">
+                                            Madhyamik</h3>
+                                        <span
+                                            class="qualification__subtitle font-rubik text-md text-secondColor">Pranabananda
+                                            Vidyapith</span>
+                                        <div class="qualification__calender font-rubik text-sm  text-subText">
+                                            <i class="uil uil-calendar-alt"></i>
+                                            2016 - 2018
+                                        </div>
+                                    </div>
+                                    <div class="flex">
+                                        <span
+                                            class="qualification__rounder inline-block h-3 w-3 rounded-full bg-firstColor"></span>
+                                        <!-- <spna class="qualification__line w-[2px] h-full bg-firstColor"></spna> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ======================= QUALIFICATION CONTENT 2 ===================-->
+                            <div class="qualification-content hidden" data-content id="work">
+                                <div class="flex justify-center items-center">
+                                    <h1 class=" font-rubik text-subText">NO WORK EXPERIENCE</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====================== PROJECT ======================= -->
+            <section id="projects">
+                <div class="w-[100%] bg-bgColor relative ">
+                    <img class="absolute -z-[100] top-8 left-0 " src="assets/images/projects.png" alt="">
+                    <img class="absolute -z-[100] bottom-8 right-0 rotate-180" src="assets/images/projects.png" alt="">
+                    <div
+                        class="z-[999] project-wrapper wrapper w-[95%] max-w-[1300px] mx-auto flex flex-col justify-between items-center gap-y-6 py-14">
+                        <div class="project-heading flex flex-col justify-center items-center">
+                            <h1
+                                class="font-rubik text-2xl text-firstColor font-semibold flex flex-row gap-x-2 md:text-4xl xl:text-4xl">
+                                Projects
+                            </h1>
+                            <p class="text-subText text-xs md:text-base">My Projects</p>
+                        </div>
+                        <div class="project-container grid gap-x-5 gap-y-6 lg:grid-cols-2 xl:grid-cols-3">
+                            <!-- ============== PROJECT 1 =============== -->
+                            <div class="w-[350px] h-[400px] rounded-md bg-white flex flex-col justify-evenly items-center"
+                                style="box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
+                                <div class="project-img w-[320px]">
+                                    <img class="w-[100%] rounded-lg" src="assets/images/Devdetective.png" alt="">
+                                </div>
+                                <div class="project-content flex flex-col text-center">
+                                    <h3
+                                        class="font-rubik text-lg md:text-xl xl:text-2xl font-semibold cursor-pointer text-firstColor transition-all">
+                                        Dev Detective</h3>
+                                    <p class="text-sm lg:text-base text-subText">Dev Detective is a web app whick help
+                                        you to find github account which is made by using JavaScript</p>
+                                </div>
+                                <div class="project-btn ">
+                                    <a href="#contact"
+                                        class="flex gap-x-2 text-[#fff] bg-firstColor xl:text-lg text-sm md:px-5 px-3 md:py-2 py-2 border border-firstColor rounded-md  transition-all hover:bg-secondColor">
+                                        Visit <i class="uil uil-message button__icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="w-[350px] h-[400px] rounded-md bg-white flex flex-col justify-evenly items-center"
+                                style="box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
+                                <div class="project-img w-[320px]">
+                                    <img class="w-[100%] rounded-lg" src="assets/images/Devdetective.png" alt="">
+                                </div>
+                                <div class="project-content flex flex-col text-center">
+                                    <h3
+                                        class="font-rubik text-lg md:text-xl xl:text-2xl font-semibold cursor-pointer text-firstColor transition-all">
+                                        Dev Detective</h3>
+                                    <p class="text-sm lg:text-base text-subText">Dev Detective is a web app whick help
+                                        you to find github account which is made by using JavaScript</p>
+                                </div>
+                                <div class="project-btn ">
+                                    <a href="#contact"
+                                        class="flex gap-x-2 text-[#fff] bg-firstColor xl:text-lg text-sm md:px-5 px-3 md:py-2 py-2 border border-firstColor rounded-md  transition-all hover:bg-secondColor">
+                                        Visit <i class="uil uil-message button__icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="w-[350px] h-[400px] rounded-md bg-white flex flex-col justify-evenly items-center"
+                                style="box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
+                                <div class="project-img w-[320px]">
+                                    <img class="w-[100%] rounded-lg" src="assets/images/Devdetective.png" alt="">
+                                </div>
+                                <div class="project-content flex flex-col text-center">
+                                    <h3
+                                        class="font-rubik text-lg md:text-xl xl:text-2xl font-semibold cursor-pointer text-firstColor transition-all">
+                                        Dev Detective</h3>
+                                    <p class="text-sm lg:text-base text-subText">Dev Detective is a web app whick help
+                                        you to find github account which is made by using JavaScript</p>
+                                </div>
+                                <div class="project-btn ">
+                                    <a href="#contact"
+                                        class="flex gap-x-2 text-[#fff] bg-firstColor xl:text-lg text-sm md:px-5 px-3 md:py-2 py-2 border border-firstColor rounded-md  transition-all hover:bg-secondColor">
+                                        Visit <i class="uil uil-message button__icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="w-[350px] h-[400px] rounded-md bg-white flex flex-col justify-evenly items-center"
+                                style="box-shadow: rgba(157, 157, 157, 0.2) 0px 4px 10px;">
+                                <div class="project-img w-[320px]">
+                                    <img class="w-[100%] rounded-lg" src="assets/images/Devdetective.png" alt="">
+                                </div>
+                                <div class="project-content flex flex-col text-center">
+                                    <h3
+                                        class="font-rubik text-lg md:text-xl xl:text-2xl font-semibold cursor-pointer text-firstColor transition-all">
+                                        Dev Detective</h3>
+                                    <p class="text-sm lg:text-base text-subText">Dev Detective is a web app whick help
+                                        you to find github account which is made by using JavaScript</p>
+                                </div>
+                                <div class="project-btn ">
+                                    <a href="#contact"
+                                        class="flex gap-x-2 text-[#fff] bg-firstColor xl:text-lg text-sm md:px-5 px-3 md:py-2 py-2 border border-firstColor rounded-md  transition-all hover:bg-secondColor">
+                                        Visit <i class="uil uil-message button__icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====================== CONTACT ====================== -->
+            <section id="contact" class="w-100%">
+                <div class="relative overflow-y-hidden">
+                    <img class="-z-[100] bg-bgColor2 absolute top-0 left-0 h-[900px] w-[100vw] object-cover -translate-y-52 md:-translate-y-72"
+                        src="assets/images/bg-qualification.svg" alt="">
+                    <div
+                        class="z-[100] contact-wrapper wrapper w-[95%] max-w-[1300px] mx-auto flex flex-col justify-between items-center gap-y-16 py-20">
+                        <div class="contact-heading flex flex-col justify-center items-center">
+                            <h1
+                                class="font-rubik text-2xl text-firstColor font-semibold flex flex-row gap-x-2 md:text-4xl xl:text-4xl">
+                                Contact Me
+                            </h1>
+                            <p class="text-subText text-xs md:text-base">Get In Touch</p>
+                        </div>
+
+                        <div
+                            class="contact-container flex flex-col justify-center md:flex-row gap-x-8 gap-y-11 w-[95%] md:[80%]">
+                            <div class="contact-info flex flex-col gap-y-7 select-text">
+                                <div class="contact__information flex items-center gap-2">
+                                    <i
+                                        class="uil uil-phone contact__icon text-4xl text-firstColor bg-subColor2 rounded-full w-12 h-12 flex items-center justify-center"></i>
+
+                                    <div class="flex flex-col items-start">
+                                        <h3 class="contact__title text-xl font-rubik">Call Me</h3>
+                                        <span class="contact__subtitle text-sm text-subText">+91 8016223319</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact__information flex items-center gap-2">
+                                    <i
+                                        class="uil uil-envelope contact__icon text-4xl text-firstColor bg-subColor2 rounded-full w-12 h-12 flex items-center justify-center"></i>
+
+                                    <div class="flex flex-col items-start">
+                                        <h3 class="contact__title  text-xl font-rubik">Email</h3>
+                                        <span
+                                            class="contact__subtitle text-sm text-subText">tohidujjamanhoque@gmail.com</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact__information flex items-center gap-2">
+                                    <i
+                                        class="uil uil-map-marker contact__icon text-4xl text-firstColor bg-subColor2 rounded-full w-12 h-12 flex items-center justify-center"></i>
+
+                                    <div class="flex flex-col items-start">
+                                        <h3 class="contact__title  text-xl font-rubik">Location</h3>
+                                        <span class="contact__subtitle text-sm text-subText">West Bengal, India</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <form onsubmit="sendEmail(); reset(); return false;" action=""
+                                class="contact-form flex flex-col gap-y-3">
+                                <div class="contact__inputs flex flex-col  gap-x-2 gap-y-3 md:flex-row">
+                                    <div
+                                        class="contact__content flex flex-col bg-subColor font-rubik py-3 px-4 rounded-md">
+                                        <label for="" class="contact__label">Name</label>
+                                        <input type="text" id="name"
+                                            class="contact__input bg-subColor outline-none text-subText border-none" />
+                                    </div>
+
+                                    <div
+                                        class="contact__content flex flex-col bg-subColor font-rubik py-3 px-4 rounded-md">
+                                        <label for="" class="contact__label ">Email</label>
+                                        <input type="email" id="email"
+                                            class="contact__input bg-subColor outline-none text-subText border-none" />
+                                    </div>
+                                </div>
+                                <div class="contact__content flex flex-col bg-subColor font-rubik py-3 px-4 rounded-md">
+                                    <label for="" class="contact__label">Message</label>
+                                    <textarea name="" id="message" cols="0" rows="7"
+                                        class="contact__input bg-subColor outline-none text-subText border-none"></textarea>
+                                </div>
+
+                                <div>
+                                    <button type="submit"
+                                        class="flex gap-x-2 w-max text-[#fff] bg-firstColor xl:text-lg text-sm xl:px-5 px-3 xl:py-3 py-2 border border-firstColor rounded-md  transition-all hover:bg-secondColor">
+                                        Send Message <i class="uil uil-message button__icon"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====================== FOOTER ====================== -->
+            <footer class="footer">
+                <div class="flex justify-center bg-firstColor">
+                    <div class="w-[95%] max-w-[1300px]">
+                        <div class=" grid grid-cols-1 md:grid-cols-3 py-8 px-11 gap-y-8 items-center">
+                            <div class="flex flex-col justify-start items-center gap-y-2">
+                                <div class="footer-logo flex items-center gap-x-3">
+                                    <img class="w-14" src="assets/images/logoimg.png" alt="">
+                                    <h1 class="logo font-rubik text-5xl font-bold leading-5 text-white">T<span
+                                            class="text-thirdColor">J</span>.</h1>
+                                </div>
+                                <p class="text-xl text-subColor2 font-semibold">Developer</p>
+                            </div>
+                            <div
+                                class="footer-list text-lg flex flex-row text-center justify-evenly gap-y-4 text-subColor md:text-start">
+                                <ul class="nav flex flex-col gap-y-4">
+                                    <li><a href="#home" id="home-btn"
+                                            class="font-rubiktext-lg leading-5 transition-all hover:text-thirdColor">Home</a>
+                                    </li>
+                                    <li><a href="#about" id="about-btn"
+                                            class="font-rubiktext-lg leading-5 transition-all hover:text-thirdColor">About</a>
+                                    </li>
+                                    <li><a href="#skills" id="skills-btn"
+                                            class="font-rubik text-lg leading-5 transition-all hover:text-thirdColor">Skills</a>
+                                    </li>
+                                </ul>
+                                <ul class="flex flex-col gap-y-4">
+                                    <li><a href="#qualification" id="skills-btn"
+                                            class="font-rubik text-lg leading-5 transition-all hover:text-thirdColor">Qualification</a>
+                                    </li>
+                                    <li><a href="#projects" id="project-btn"
+                                            class="font-rubik text-lg leading-5 transition-all hover:text-thirdColor">Projects</a>
+                                    </li>
+                                    <li><a href="#contact" id="contact-btn"
+                                            class="font-rubik text-lg leading-5 transition-all hover:text-thirdColor">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="nav-social flex flex-col items-center gap-y-2">
+                                <p class="font-rubik text-subColor">Follow Me On Social Media</p>
+                                <div class="flex flex-row justify-center items-center gap-x-1">
+                                    <a href="https://www.linkedin.com/in/tohidujjaman-hoque/" target="_blank"
+                                        class="font-rubik p-2 text-lg leading-5 rounded-full bg-thirdColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                        <i class="uil uil-linkedin-alt"></i>
+                                    </a>
+                                    <a href="https://twitter.com/coding_tj" target="_blank"
+                                        class="font-rubik p-2 text-lg leading-5 rounded-full bg-thirdColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                        <i class="uil uil-twitter-alt"></i>
+                                    </a>
+                                    <a href="https://github.com/tj8016" target="_blank"
+                                        class="font-rubik p-2 text-lg leading-5 rounded-full bg-thirdColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                        <i class="uil uil-github-alt"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/coding_tj/" target="_blank"
+                                        class="font-rubik p-2 text-lg leading-5 rounded-full bg-thirdColor text-white border border-firstColor transition-all hover:bg-secondColor">
+                                        <i class="uil uil-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="h-[1px] bg-secondColor"></div>
+
+                        <div class="flex justify-center py-6">
+                            <p class="footer__copy text-subColor">&#169; Tohidujjaman Hoque. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
